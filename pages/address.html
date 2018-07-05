@@ -1,0 +1,105 @@
+﻿<div ng-controller="CheckoutController">
+
+    <h1>Billing and Shipping Address</h1>
+
+    <!--<p>
+        If you have already created an account from a previous order, 
+        <a class="button" href="/Account/LogOn?returnUrl=%2FCheckout%2FAddress">LOGIN</a>
+        and we'll fetch your address information for 
+        you. If you don't have an account, enter your desired username and password below and 
+        we'll create one for you.
+    </p>-->
+
+    <form name="addressForm" ng-submit="addressForm.$valid && addAddress(addresses)" novalidate>
+        <fieldset>
+            <legend>Customer</legend>
+
+            <div class="enteraddress">
+                <h3>Billing Address</h3>
+                <span class="h35"></span>
+
+                <div>First Name<span ng-show="addressForm.fn.$error.required" class="req">*</span></div>
+                <div><input name="fn" type="text" ng-model="addresses.FirstName" ng-maxlength="60" required /></div>
+
+                <div>Last Name<span ng-show="addressForm.ln.$error.required" class="req">*</span></div>
+                <div><input name="ln" type="text" ng-model="addresses.LastName" ng-maxlength="60" required /></div>
+
+                <div>Address 1<span ng-show="addressForm.a1.$error.required" class="req">*</span></div>
+                <div><input name="a1" type="text" ng-model="addresses.Address1" ng-maxlength="50" required /></div>
+
+                <div>Address 2</div>
+                <div><input type="text" ng-model="addresses.Address2" ng-maxlength="50" /></div>
+
+                <div>City<span ng-show="addressForm.cy.$error.required" class="req">*</span></div>
+                <div><input name="cy" type="text" ng-model="addresses.City" ng-maxlength="40" required /></div>
+
+                <div>State<span ng-show="addressForm.st.$error.required" class="req">*</span></div>
+                <div><select name="st" ng-model="addresses.State" ng-options="state.Abbv as state.Name for state in States" required></select></div>
+
+                <div>Zip Code<span ng-show="addressForm.zp.$error.required" class="req">*</span><span ng-show="addressForm.zp.$error.minlength" class="req"> must be at least 5 digits</span><span ng-show="addressForm.zp.$error.maxlength" class="req"> cannot be more than 11 digits</span></div>
+                <div><input name="zp" type="text" ng-model="addresses.PostalCode" ng-maxlength="11" ng-minlength="5" required /></div>
+
+                <div>Country<span ng-show="addressForm.co.$error.required" class="req">*</span></div>
+                <div><select name="co" ng-model="addresses.Country" ng-options="country.Abbv3 as country.Name for country in Countries" required></select></div>
+            </div>
+
+            <div class="enteraddress shipcol">
+                <h3>Shipping Address</h3>
+                <span class="h35">
+                    <input type="checkbox" id="chkSameAsBilling" ng-model="addresses.SameAsBilling" />
+                    <label for="chkSameAsBilling">Same as billing address</label>
+                </span>
+
+                <div ng-hide="addresses.SameAsBilling">
+                    <div>First Name</div>
+                    <div><input type="text" ng-model="addresses.ShippingFirstName" ng-maxlength="60" /></div>
+
+                    <div>Last Name</div>
+                    <div><input type="text" ng-model="addresses.ShippingLastName" ng-maxlength="60" /></div>
+
+                    <div>Address 1</div>
+                    <div><input type="text" ng-model="addresses.ShippingAddress1" ng-maxlength="50" /></div>
+
+                    <div>Address 2</div>
+                    <div><input type="text" ng-model="addresses.ShippingAddress2" ng-maxlength="50" /></div>
+
+                    <div>City</div>
+                    <div><input type="text" ng-model="addresses.ShippingCity" ng-maxlength="40" /></div>
+
+                    <div>State</div>
+                    <div><select ng-model="addresses.ShippingState" ng-options="state.Abbv as state.Name for state in States"></select></div>
+
+                    <div>Zip Code<span ng-show="addressForm.szp.$error.minlength" class="req"> must be at least 5 digits</span><span ng-show="addressForm.szp.$error.maxlength" class="req"> cannot be more than 11 digits</span></div>
+                    <div><input name="szp" type="text" ng-model="addresses.ShippingPostalCode" ng-maxlength="11" ng-minlength="5" /></div>
+
+                    <div>Country</div>
+                    <div><select ng-model="addresses.ShippingCountry" ng-options="country.Abbv3 as country.Name for country in Countries"></select></div>
+                </div>
+            </div>
+
+            <div style="clear: both; height: 20px;"></div>
+
+            <div>Phone<span ng-show="addressForm.ph.$error.required" class="req">*</span><span ng-show="addressForm.ph.$error.minlength" class="req"> phone must be ten characters</span><span ng-show="addressForm.ph.$error.pattern" class="req"> invalid phone number</span></div>
+            <div><input name="ph" type="tel" ng-model="addresses.Phone" ng-maxlength="30" ng-minlength="10" ng-pattern="/^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/" required /></div>
+
+            <div>Email Address<span ng-show="addressForm.em.$error.required" class="req">*</span><span ng-show="addressForm.em.$error.email" class="req"> invalid email</span></div>
+            <div><input name="em" type="email" ng-model="addresses.Email" ng-maxlength="50" required /></div>
+        </fieldset>
+
+        <!--<fieldset>
+            <legend>My Account</legend>
+            <p>
+                Please enter your desired username and password and we'll create an account
+                for you to monitor order status and check order history.
+            </p>
+            <div>Uname</div>
+            <div><input type="text" ng-model="addresses.Uname" /></div>
+            <div>Password</div>
+            <div><input type="password" ng-model="addresses.Password" /></div>
+        </fieldset>-->
+
+        <p>Address information valid: {{addressForm.$valid}}</p>
+        <p><input type="submit" value="Continue" class="btnsubmit" ng-disabled="addressForm.$invalid" /></p>
+    </form>
+
+</div>

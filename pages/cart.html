@@ -1,0 +1,60 @@
+﻿<h1>Shopping Cart</h1>
+<div ng-controller="CartController">
+    <p>{{Message}}</p>
+    <table class="cartTable" ng-hide="CartEmpty">
+        <tr>
+            <th colspan="2">Product</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Qty</th>
+            <th>Extended</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="cartitem in CartItems">
+			<td width="100"><img src="/imagesprods/{{cartitem.Sku}}/thumb.jpg" width="95px" alt="{{cartitem.ProductName}}" galleryimg="no" border="0"></td>
+            <td><a ng-href="/#/productdetails/{{cartitem.ProductId}}">{{cartitem.ProductName}}</a></td>
+            <td>{{cartitem.Price|currency}}</td>
+            <td>{{cartitem.ColorName}}</td>
+            <td>{{cartitem.SizeName}}</td>
+            <td>{{cartitem.Count}}</td>
+            <td>{{cartitem.Price * cartitem.Count | currency}}</td>
+            <td><a ng-click="removeItem(cartitem.Id)" class="pointer"><img src="/images/delete.gif" width="11" height="12" alt="delete this item" border="0" /></a></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td colspan="5"></td>
+            <td>{{ SubTotal | currency }}</td>
+            <td></td>
+        </tr>
+        <tr ng-hide="true"><td colspan="8">{{CartId}}</td></tr>
+    </table>
+    <p class="checkoutbutton" ng-hide="CartEmpty"><a href="#checkout/" class="button">Checkout&gt;&gt;</a></p>
+    <h3 ng-hide="CartEmpty">Shippping Chart</h3>
+    <table cellpadding="0" cellspacing="0" class="cartTable" ng-hide="CartEmpty">
+        <tr>
+            <th>Number of Items</th>
+            <th>Charge</th>
+        </tr>
+        <tr>
+            <td>1 - 5</td>
+            <td>$7.00</td>
+        </tr>
+        <tr>
+            <td>6 - 10</td>
+            <td>$8.00</td>
+        </tr>
+        <tr>
+            <td>11 - 15</td>
+            <td>$9.00</td>
+        </tr>
+        <tr>
+            <td>16  - 20</td>
+            <td>$10.00</td>
+        </tr>
+        <tr>
+            <td>21 and up</td>
+            <td>$15.00</td>
+        </tr>
+    </table>
+</div>

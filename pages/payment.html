@@ -1,0 +1,84 @@
+﻿<div ng-controller="PaymentController" class="payment">
+
+    <h1>Payment</h1>
+
+    <div class="paybillingaddress">
+        <h3>BILLING ADDRESS</h3>
+        {{addresses.FirstName}} {{addresses.LastName}}<br />{{addresses.Address1}}<br /><span ng-show="addresses.Address2">{{addresses.Address2}}<br /></span>{{addresses.City}}, {{addresses.State}} {{addresses.PostalCode}}<br />{{addresses.Phone}}
+    </div>
+
+    <div class="payshippingaddress">
+        <h3>SHIPPING ADDRESS</h3>
+        {{addresses.ShippingFirstName}} {{addresses.ShippingLastName}}<br />{{addresses.ShippingAddress1}}<br /><span ng-show="addresses.ShippingAddress2">{{addresses.ShippingAddress2}}<br /></span>{{addresses.ShippingCity}}, {{addresses.ShippingState}} {{addresses.ShippingPostalCode}}
+    </div>
+
+    <div style="clear:both;margin-bottom:15px;"></div>
+
+    <form name="paymentForm" ng-submit="paymentForm.$valid && addPayment(payment)" novalidate>
+        <table class="cartTable" ng-controller="CartController">
+            <tr>
+                <th colspan="2">Product</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Qty</th>
+                <th>Extended</th>
+            </tr>
+            <tr ng-repeat="cartitem in CartItems">
+				<td width="100"><img src="/imagesprods/{{cartitem.Sku}}/thumb.jpg" width="95" alt="{{cartitem.ProductName}}" galleryimg="no" border="0"></td>
+                <td><a ng-href="/#/productdetails/{{cartitem.ProductId}}">{{cartitem.ProductName}}</a></td>
+                <td>{{cartitem.Price|currency}}</td>
+                <td>{{cartitem.ColorName}}</td>
+                <td>{{cartitem.SizeName}}</td>
+                <td>{{cartitem.Count}}</td>
+                <td>{{cartitem.Price * cartitem.Count | currency}}</td>
+            </tr>
+            <tr class="darkbordertop">
+                <td colspan="6" align="right">Sub-Total</td>
+                <td>
+                    {{ SubTotal | currency }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" align="right">Tax</td>
+                <td>
+                    {{ Tax | currency }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" align="right">
+                    Shipping
+                    <select ng-model="payment.ShipChoice" ng-options="item.ShipVia for item in Shipping track by item.ShipCost" required></select>
+                </td>
+                <td>{{payment.ShipChoice.ShipCost | currency}}</td>
+            </tr>
+            <tr>
+                <td colspan="6" align="right">Grand Total</td>
+                <td>{{ (payment.ShipChoice.ShipCost * 1) + SubTotal + Tax | currency }}</td>
+            </tr>
+        </table>
+
+        <fieldset>
+            <legend>Enter Credit Card Information</legend>
+            <div>
+                <div>Credit Card Number<span ng-show="paymentForm.cc.$error.required" class="req">*</span><span ng-show="paymentForm.cc.$error.minlength" class="req"> must be at least 16 digits</span><span ng-show="paymentForm.cc.$error.maxlength" class="req"> cannot be more than 20 digits</span><span ng-show="paymentForm.cc.$error.pattern" class="req"> can only contain digits</span></div>
+                <div><input name="cc" type="number" ng-model="payment.CreditCardNumber" ng-maxlength="20" ng-minlength="16" ng-pattern="/^[0-9]*$/" required /></div>
+            </div>
+            <div>
+                <div>Security Code<span ng-show="paymentForm.ccv.$error.required" class="req">*</span><span ng-show="paymentForm.ccv.$error.minlength" class="req"> must be at least 3 digits</span><span ng-show="paymentForm.ccv.$error.maxlength" class="req"> cannot be more than 4 digits</span><span ng-show="paymentForm.ccv.$error.pattern" class="req"> can only contain digits</span></div>
+                <div><input name="ccv" type="number" ng-model="payment.CCV" ng-maxlength="4" ng-minlength="3" ng-pattern="/^[0-9]*$/" required /></div>
+            </div>
+            <div>
+                <div>Expiration</div>
+                <div>
+                    <select name="em" ng-model="payment.ExpMo" ng-options="expmo.num as expmo.name for expmo in ExpMos" class="sm" required></select><span ng-show="paymentForm.em.$error.required" class="req">*</span>
+                    <select name="ey" ng-model="payment.ExpYear" ng-options="year for year in ExpYears" required></select><span ng-show="paymentForm.ey.$error.required" class="req">*</span>
+                </div>
+            </div>
+        </fieldset>
+        
+        <p>Payment form valid: {{paymentForm.$valid}}</p>
+        <p><input type="submit" value="Submit Order" class="btnsubmit" ng-disabled="paymentForm.$invalid" /></p>
+    </form>
+
+</div>

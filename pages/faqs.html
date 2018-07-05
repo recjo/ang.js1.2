@@ -1,0 +1,7 @@
+﻿<div ng-controller="FaqsController">
+    <h1>Frequently Asked Questions</h1>
+    <div id="faqtable" ng-repeat="faq in Faqs">
+        <div class="faq-question" ng-click="FaqShow=!FaqShow"><span class="qstyle">Q.</span> {{faq.Question}}</div>
+        <div class="faq-answer" ng-hide="FaqShow">{{faq.Answer}}</div>
+    </div>
+</div>

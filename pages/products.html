@@ -1,0 +1,10 @@
+﻿<div ng-controller="ProductsController">
+    <h1>{{CategoryInfo.CategoryName}}</h1>
+    <div id="prodlist">
+        <a ng-href="/#/productdetails/{{product.Id}}" ng-repeat="product in Products">
+			<div class="prodimg"><img src="/imagesprods/{{product.Sku}}/thumb.jpg" width="95px" alt="{{product.ProductName}}" galleryimg="no" border="0" align="middle" /></div>
+			<div class="prodname">{{product.ProductName}}</div>
+			<div class="prodprice">{{product.Price|currency}}</div>
+		</a>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html ng-app="StoreModule">
+<head>
+    <title>Angular</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noarchive" />
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="nofollow" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex" />
+    <link href="/styles/global.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+<body ng-controller="PageController">
+    <input type="hidden" id="pageid" value="1000" />
+    <div id="page">
+        <div id="header" class="hdr_default" ng-include src="'header.htm'"></div>
+        <div id="mainArea">
+            <div id="menuContentArea" ng-include src="'leftnav.htm'"></div>
+            <div id="mainContentArea" ng-controller="ProductsController as pc">
+                <!--<h1>{{StoreName}}</h1>-->
+                <h1>{{CategoryName}}</h1>
+                <div id="prodlist">
+                <a href="/Store/Details/{{product.Id}}" ng-repeat="product in Products">{{product.Name}}</a>
+                </div>
+            </div>
+        </div>
+        <div id="footer" ng-include src="'footer.htm'"></div>
+    </div>
+</body>
+</html>

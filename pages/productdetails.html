@@ -1,0 +1,38 @@
+﻿<div ng-controller="ProductDetailsController" class="ProdDetails">
+    <div class="prodimage">
+		<img src="/imagesprods/{{Products.Sku}}/large.jpg" width="250px" alt="{{Products.ProductName}}" title="{{Products.ProductName}}" galleryimg="no" />
+	</div>
+
+    <div class="prodbody">
+        <h1>{{Products.ProductName}}</h1>
+        
+        <p><b>Sku:</b> {{Products.Sku}}</p>
+
+		<p ng-bind-html="Products.ProductDesc"></p>
+
+        <p><b>Price:</b> {{Products.Price|currency}}</p>
+
+        <form name="cartForm" ng-submit="cartForm.$valid && addToCart(cart)" novalidate>
+            <p>
+                <b>Color:</b>
+                <select ng-model="cart.ColorName" ng-options="currOption for currOption in Products.ColorName.split('|')" ng-show="Products.ColorName.indexOf('|') > -1" required></select>
+                <span ng-show="Products.ColorName.indexOf('|') == -1">{{Products.ColorName}}</span>
+            </p>
+            <p>
+                <b>Size:</b>
+                <select ng-model="cart.SizeName" ng-options="currOption for currOption in Products.SizeName.split('|')" ng-show="Products.SizeName.indexOf('|') > -1" required></select>
+                <span ng-show="Products.SizeName.indexOf('|') == -1">{{Products.SizeName}}</span>
+            </p>
+            <p>
+                <b>Quantity:</b>
+                <input name="qt" type="number" maxlength="2" ng-minlength="1" ng-pattern="/^[0-9]*$/" ng-model="cart.Count" class="qtybox" required />
+                <span ng-show="cartForm.qt.$error.required" class="req">*</span><span ng-show="cartForm.qt.$error.minlength" class="req"> must be at least 1 digits</span><span ng-show="cartForm.qt.$error.maxlength" class="req"> cannot be more than 2 digits</span><span ng-show="cartForm.qt.$error.pattern" class="req"> can only contain digits</span>
+            </p>
+            <p ng-hide="cartForm.$valid">The above items need your attention.</p>
+            <p><input type="submit" value="Add to cart" class="btnsubmit" ng-disabled="cartForm.$invalid" /></p>
+        </form>
+
+        <hr />
+    </div>
+    <div style="clear:both;"></div>
+</div>
