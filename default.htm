@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="StoreModule">
+<head>
+    <title>Angular</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noarchive" />
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="nofollow" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex" />
+    <link href="/styles/global.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="/scripts/angular-uuid.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+<body ng-controller="PageController">
+    <div id="page">
+        <div id="header" ng-class="{hdr_default:hdrClassIdx==1,hdr_motocross:hdrClassIdx==2,hdr_skate:hdrClassIdx==3,hdr_snow:hdrClassIdx==4,hdr_surf:hdrClassIdx==5}" ng-include src="'pages/header.html'"></div>
+        <div id="mainArea">
+            <div id="menuContentArea" ng-include src="'pages/leftnav.html'"></div>
+            <div id="mainContentArea" ng-view>
+            </div>
+        </div>
+        <div id="footer" ng-include src="'pages/footer.html'"></div>
+    </div>
+</body>
+</html>
