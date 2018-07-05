@@ -1,0 +1,516 @@
+
+    body 
+    {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        color: #000000;
+        background-color: #252525;
+    }
+    #page { width:900px; margin:0px auto; margin-top: 15px; position: relative; }
+    #whiteBar
+    {
+        clear: both;
+        height: 1px;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+    #grayBar
+    {
+        height: 2px;
+        overflow: hidden;
+        background-color: #454545;
+    }
+    #mainArea
+    {
+        background-color: #ffffff;
+        display:table;
+        width: 100%;
+		min-height: 350px;
+    }
+    #mainContentArea h1
+    {
+        color: #EF970F;
+        font-size: 18px;
+        text-transform: uppercase;
+        background-image: url('../images/h1arrow.gif');
+        background-position: 0px 5px;
+        background-repeat: no-repeat;
+        margin: 0px;
+        padding: 0px 0px 15px 10px;
+    }
+    #mainContentArea .redtext
+    {
+        color: #BF2932;
+    }
+    #mainContentArea .graytext
+    {
+        color: #999F9B;
+    }
+    #footer
+    {
+        height: 30px;
+        margin: 0px auto;
+        overflow: hidden;
+        background-color: #252525;
+        text-align: right;
+        position: relative;
+    }
+    #footer h2
+    {
+        position: absolute;
+        top: 25%;
+        right: 5px;
+        height: 12px;
+        margin: 0px;
+        padding: 0px;
+        color: #FFFFFF;
+        font-size: 9px;
+    }
+    
+    .field-validation-error, .field-validation-error span { color: #ff3366; margin-left:5px; }
+    
+    .field-validation-valid
+    {
+        display: none;
+    }
+    .validation-summary-valid
+    {
+        display: none;
+    }
+
+    .pointer { cursor: pointer; }
+    
+a.adminLink
+{
+    padding: 0px 0px 3px 20px;
+    background: url('../images/edit.gif') no-repeat 0px 0px;
+    display: inline;
+    float:right;
+}
+
+/*------------------------- H o v e r  M e n u s ------------------------------------*/
+a.navhover:link, a.navhover:visited, a.navhover:active
+{
+	width: 100%;
+	display: block;
+	color: #666666;
+	border-bottom-width: 1px;
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	padding-top: 3px;
+	padding-left: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	/*background-color: #666666;*/
+}
+
+a.navhover:hover
+{
+	background-color: #000000;
+	color: #EF970F;
+	text-decoration: none;
+}
+
+/*--------------------------------- Product Details -------------------------------*/
+.prodName 
+{
+    font-weight: bold;
+    font-size: 12px;
+    color: #666666;
+}
+.prodPrice 
+{
+    font-size: 12px;
+    color: #BF2932;
+}
+.prodAddl 
+{
+    font-size: 10px;
+    color: #666666;
+}
+.prodTextDiv
+{
+    padding: 8px;
+}
+
+.ProdDetails {
+}
+
+.prodbody {
+    float:right;
+    width:350px;
+}
+
+.prodimage
+{
+    text-align:center;
+    vertical-align:top;
+    margin:0px;
+    padding:0px;
+    margin-right:20px;
+    float:left;
+    width:254px;
+    overflow: hidden;
+}
+
+.prodimage img
+{
+    border: solid 2px #e7e7e7;
+}
+
+/*--------------------------------- P r o d u c t   L i s t -------------------------------*/
+#ulList ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+#ulList ul li
+{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#ulList ul li a,
+#ulList ul li a:visited,
+#ulList ul li a:active
+{
+    height: 20px;
+    margin: 0px;
+    margin-bottom: 8px;
+    display: block;
+	border-bottom-width: 1px;
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-right-width: 1px;
+	border-right-color: #000000;
+	border-right-style: solid;
+	padding-top: 3px;
+	padding-left: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+	color: #000000;
+}
+
+#ulList ul li a:hover
+{
+	background-color: #000000;
+	color: #EF970F;
+	text-decoration: none;
+}
+
+#prodlist
+{
+    margin-top: 10px;
+}
+
+#prodlist a,
+#prodlist a:visited,
+#prodlist a:active
+{
+    display: block;
+    border-bottom: solid 1px #666666;
+    padding: 15px 5px 5px 5px;
+    text-decoration: none;
+    color: #666666;
+    font-weight: bold;
+    font-size: 13px;
+}
+#prodlist a:hover
+{
+    color: #ffffff;
+    background-color: gray;
+}
+#prodlist a div { display:table-cell; }
+#prodlist a div.imgname { width:95px; }
+#prodlist a div.prodname { width:475px; padding-left:15px; }
+#prodlist a div.prodprice { width:65px; text-align:right; }
+/*
+#prodlist a .prodname { margin-left:20px; }
+
+#prodlist a .prodprice { float:right; margin-top:38px; }
+*/
+
+.txtNumber
+{
+    width: 40px;
+}
+
+/************************ cart styles **********************/
+input[type=submit]
+{
+	clear: both;
+	display: inline-block;
+	margin-top: 10px; 
+	padding: 5px;
+	border: none;
+	background-color: #5e5b54;
+	color: #fff !important;
+	font-weight: bold !important;
+	font-size: 12px !important;
+	font-family: Helvetica,Arial,sans-serif !important;
+	cursor: pointer;
+}
+
+a.button, a.button:visited
+{
+    display: inline-block;
+	color: #fff !important;
+	text-decoration: none;
+	margin-top: 10px; 
+	padding: 5px;
+	border: none;
+	background-color: #5e5b54;
+	font-weight: bold !important;
+	font-size: 12px !important;
+	font-family: Helvetica,Arial,sans-serif !important;
+}
+
+#cart
+{
+	float: right;
+}
+
+#update-message
+{
+	color: #F6855E;
+	font-weight: bold;
+}
+
+.EmptyMsg 
+{
+	color: #000000 !important;
+	font-weight: bold;
+}
+
+/* Tables */
+table.cartTable
+{
+	border: 1px solid #000;
+	border-collapse: collapse;
+	color: #666666;
+	min-width: 500px;
+	width: 100%;
+}
+
+table.cartTable tr
+{
+	border: 1px solid #000;
+	line-height: 25px;
+}
+
+table.cartTable th
+{
+	background-color: #9b9993;
+	color: #000;
+	font-size: 13px;
+	text-align: left;
+}
+
+table.cartTable th, table.cartTable td
+{
+	padding-left: 5px;
+}
+
+tr:hover
+{
+	background-color: #fff;
+}
+
+#tdShipMenu select 
+{
+    color: #666666;
+    font-size: 11px;
+}
+
+p.checkoutbutton 
+{
+	min-width:500px;
+	width:100%;
+	text-align:right;
+}
+
+.qtybox { width:40px; }
+
+/************************ FAQ styles **********************/
+
+.faq-question 
+{
+    padding: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000000;
+}
+
+.faq-answer 
+{
+    padding: 15px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 11px;
+    color: #666666;
+}
+
+.qstyle 
+{
+    font-family: Serif !important;
+    font-size: 14px;
+}
+/************************ checkout address styles **********************/
+
+.paybillingaddress 
+{
+    float: left;
+    width:300px;
+}
+
+.payshippingaddress 
+{
+    float: left;
+    width:200px;
+}
+
+.enteraddress 
+{
+    width: 255px;
+    float: left;
+}
+
+.enteraddress .text-box, .enteraddress .textarea
+{
+    width: 245px;
+}
+
+.enteraddress select
+{
+    width: 248px;
+}
+
+#shipcol
+{
+    margin-left:20px;
+}
+
+.h35 { display:block; height:20px; }
+
+/************************ payment styles **********************/
+
+.payment fieldset { margin-top:20px; }
+
+.payment fieldset select { width:65px; }
+
+.payment fieldset select.sm { width:95px; }
+
+/* 300 - 680    250h */
+
+    #header
+    {
+        height: 287px;
+        overflow: hidden;
+    }
+    #logoBox
+    {
+        width: 250px;
+        height: 250px;
+        background-color: #000000;
+        float: left;
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-image: url('../images/beyondpeace_logo2_250.gif');
+        cursor: pointer;
+    }
+    #logoBoxDemo
+    {
+        width: 250px;
+        height: 250px;
+        background-color: gray;
+        float: left;
+    }
+    #logoBox h1
+    {
+        font-size: 18px;
+        font-weight: bold;
+        color: #EF970F;
+        margin:9px 6px 0px 0px;
+        text-align:right;
+    }
+    #hdrGraphic
+    {
+        height: 250px;
+        float: left;
+    }
+    #hdrGraphic .frontpic
+    {
+        margin-top:170px;
+    }
+    .hdr_motocross, .hdr_skate, .hdr_snow, .hdr_surf, .hdr_default
+    {
+        background-position: right top;
+        background-repeat: no-repeat;
+    }
+    .hdr_motocross { background-image: url('/images/hdr_motocross_large.jpg'); }
+    .hdr_skate { background-image: url('/images/hdr_skate_large.jpg'); }
+    .hdr_snow { background-image: url('/images/hdr_snow_large.jpg'); }
+    .hdr_surf { background-image: url('/images/hdr_surf_large.jpg'); }
+    .hdr_default { background-image: url('/images/hdr_default_large.jpg'); }
+    .hdr_none { background-color:Gray; }
+    #menuContentArea
+    {
+        background-color: #e7e7e7;
+        margin: 0px;
+        padding: 20px;
+        width: 185px;
+        vertical-align: top;
+        display:table-cell;
+    }
+    #smallnav {display:none;}
+    #mainContentArea
+    {
+        margin: 0px;
+        display:table-cell;
+        padding: 20px;
+    }
+    #menuBar
+    {
+        height: 24px; /*want 34px height max with padding*/
+        padding-top:10px;
+        text-align:center;
+        background-color: #1c1c1c;
+        background-image: url('../images/menu_tile.gif');
+        background-position: left top;
+        background-repeat: repeat-x;
+    }
+    .menuItem
+    {
+    	display:inline-block;
+        background-image: url('../images/menu_sep.jpg');
+        background-position: left top;
+        background-repeat: no-repeat;
+        width:15%;
+        white-space:nowrap;
+    }
+    .menuItemDef {background-image: none; }
+    .menuItemFirst {padding-left: 0px; }
+    .menuItemLast {padding-right: 0px; }
+    .menuItem a, .menuItem a:visited
+    {
+        color: #FFFFFF;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Verdana, Helvetica;
+        font-weight: bold;
+        letter-spacing: -0.07em;
+        font-size: 13px;
+        margin-left:2px;
+        margin-right:2px;
+    }
+    .menuItem a:hover
+    {
+        color: #EF970F;
+    }
+    .req { color: red; font-weight:bold;}
+    .btnsubmit{ cursor: pointer; }
+    input[type=submit][disabled] { cursor: default; background-color: lightgray; color: white !important; }
